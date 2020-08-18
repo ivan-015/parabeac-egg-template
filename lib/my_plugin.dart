@@ -27,3 +27,12 @@ class MyPlugin extends PBNakedPluginNode {
     // TODO:
   }
 }
+
+class MyGenerator extends PBGenerator {
+  MyGenerator();
+
+  @override
+  String generate(PBIntermediateNode node) {
+    // TODO:
+  }
+}

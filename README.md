@@ -2,22 +2,12 @@
 Parabeac eggs are plugins were created to make sure developers could create plugins that changed the way code would be exported.
 
 ## Getting started
-Before creating your plugin, run the following command to create a dart project:
-`pub global activate stagehand`
-This will create a simple library that you can submit to Parabeac.
 
-After creating the dart project, install the Parabeac Core library. This will include the **PluginNode**, **PBGenerator**, and **SketchNode** classes, which provide a template of what is needed to create your own Plugin.
+Clone this repository into your local computer. This will give you a template to kick start the development of your template; it includes all your need create a custom template.
 
-To install the Parabeac Core library, add the following lines to your pubspec.yaml file:
-```
-pubspec.yaml
+There are a couple of things to keep in mind while developing your plugin.
+1. Make sure you have a semantic for your plugin, it could be anything; make sure to communicate the semantic with the designer.
+2. Make sure you are extending the correct plugin class.
+3. Finally, place your plugin in the plugins directory inside of Parabeac Core.
 
-dependencies:
-    parabeac_core: ^1.0.0
-```
-
-Finally, run the following command in your terminal to get theparabeac_corelibrary packages:
-`pub get`
-
-Created from templates made available by Stagehand under a BSD-style
-[license](https://github.com/dart-lang/stagehand/blob/master/LICENSE).
+After this, you can run Parabeac Core and watch your plugin do its magic!
