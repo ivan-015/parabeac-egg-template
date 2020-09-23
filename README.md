@@ -1,13 +1,15 @@
 # Parabeac-Egg-Template
-Parabeac eggs are plugins were created to make sure developers could create plugins that changed the way code would be exported.
+Parabeac eggs are plugins that were created to enable developers to have custom implementations for the way a design element converts to Flutter code. This repo Parabeac-egg-template is a template to quickly get a developer going on creating an egg.
+
+## What are Parabeac Eggs
+To learn what Parabeac eggs are, visit the [parabeac_eggs](https://github.com/Parabeac/parabeac_eggs) repo.
 
 ## Getting started
+This Repository hosts a sample Parabeac Egg template that can be used to kick start the development of your egg or just give more clarity and guidance on how Parabeac Eggs work. In order to get going with Parabeac Eggs just clone the repository and you're good to go.
 
-Clone this repository into your local computer. This will give you a template to kick start the development of your template; it includes all your need create a custom template.
-
-There are a couple of things to keep in mind while developing your plugin.
-1. Make sure you have a semantic for your plugin, it could be anything; make sure to communicate the semantic with the designer.
+There are a couple of things to keep in mind while developing your egg.
+1. Make sure you have a semantic for your egg, it could be anything; make sure to communicate the semantic with the designer.
 2. Make sure you are extending the correct plugin class.
-3. Finally, place your plugin in the plugins directory inside of Parabeac Core.
+3. Finally, place your egg in the plugins directory inside of Parabeac Core.
 
-After this, you can run Parabeac Core and watch your plugin do its magic!
+After this, you can run Parabeac Core and watch your egg do its magic!
