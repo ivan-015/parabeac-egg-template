@@ -36,7 +36,6 @@ class Switch extends PBEgg implements PBInjectedIntermediate {
   @override
   void alignChild() {}
 
-  /// What the fuck is this used for.
   @override
   void extractInformation(DesignNode incomingNode) {}
 
