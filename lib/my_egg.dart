@@ -36,6 +36,9 @@ class Switch extends PBEgg implements PBInjectedIntermediate {
   @override
   void alignChild() {}
 
+  /// This function is used to extract information from `PBDL` about this node.
+  /// It essentially works as an alternative constructor. 
+  /// You can populate the rest of the class with information from [DesignNode]
   @override
   void extractInformation(DesignNode incomingNode) {}
 
