@@ -40,10 +40,17 @@ This Repository hosts a sample Parabeac Egg template that can be used to kick st
 
 There are a couple of things to keep in mind while developing your egg.
 
-1. Make sure you have a semantic for your egg, it could be anything; make sure to communicate the semantic with the designer.
-2. Make sure you are extending the egg class.
-3. Finally, place your egg in the plugins directory inside of Parabeac Core.  (`/Parabeac-Core/lib/plugins`)
-4. Below is how to utilize each function available for the PBEgg & PBGenerator classes.
+1. Make sure you have a semantic for your egg, be sure to communicate the semantic with the designer. 
+2. Reserved names for semantics are:
+  * .*background
+  * .*navbar
+  * .*tabbar
+  * .*tab
+  
+  These names are used by Parabeac-core and cannot be overwritten.
+3. Make sure you are extending the egg class.
+4. Finally, place your egg in the plugins directory inside of Parabeac Core.  (`/Parabeac-Core/lib/plugins`)
+5. Below is how to utilize each function available for the PBEgg & PBGenerator classes.
 
 ## Egg Functions & Capabilities
 
