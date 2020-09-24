@@ -49,16 +49,65 @@ There are a couple of things to keep in mind while developing your egg.
 
 `void addChild(PBIntermediateNode node)` -
 
-This function is used to add a child to this node. You can 
+This function is used to add a child to this node. You can ignore the child or children coming in or you can add it to the child property like this:
+```
+void addChild(PBIntermediateNode node){
+  this.child = node;
+}
+```
 
 `void alignChild()` -
 
-`void extractInformation(DesignNode incomingNode)` -
+This function is used to add alignment to this node. Many classes when exported to Flutter have default alignment which makes the normal alignment to work correctly. However in most cases you should be able to use the default 
 
-`PBEgg generatePluginNode(Point topLeftCorner, Point bottomRightCorner, DesignNode originalRef) ` -
+```
+void alignChild(){
+  /// For one to one alignment.
+  var align = InjectedAlign(topLeftCorner, bottomRightCorner, currentContext);
+  align.addChild(child);
+  align.alignChild();
+  child = align;
+}
+```
+
+`void extractInformation(DesignNode incomingNode)` -
+This is the first method that gets executed immediately after the egg being discovered as an egg. Here you can pull out any information you need from the design node that you might need for the egg.
+
+`PBEgg generatePluginNode(Point topLeftCorner, Point bottomRightCorner, DesignNode originalRef)` -
+Here you simply want to return the generator you would like to use to convert this egg into Flutter code.
 
 ## Generator Functions & Capabilities
 
 `String generate(PBIntermediateNode source)` -
+This is the method to generate the Flutter code that should be injected. Below is a sample.
+```
+  var buffer = StringBuffer();
+  buffer.write('Container(');
+  buffer.write(')');
+  return buffer.toString();
+```
+
+From the generator you have access to the manager. Access to the manager gives you access to the following methods that can be used within the generate() method.
+```
+ /// Declares a parameter that is used to declare an instance variable and contructor parameter in the manager.
+ /// PBParam accepts 3 values: Name of the variable, type of the variable, & the default value of the variable.
+ var value = PBParam('switchValue', 'bool', false);
+
+ /// Notifying the manager to add an instance variable to the file.
+ manager.addInstanceVariable(value);
+      
+ /// Notifying the manager to inject a contstructor variable to the constructor to override the default value if wanted.
+ manager.addConstructorVariable(value);
+      
+ /// Notifying the manager to inject a package dependency into the pubspec.yaml file of the exported project.
+ manager.addDependencies('list_tile_switch', '^0.0.2');
+      
+ /// Notifying the manager to inject an import into the file.
+ manager.addImport('package:list_tile_switch/list_tile_switch.dart');
+```
+* If you wanted to add an instance variable or state variable, you can create a `PBParam` and send it to `.addInstanceVariable()`
+* You can also make this variable accessible from the constructor by calling add the same PBParam to `.addConstructorVariable()`
+* If you wanted to use a 3rd party dependency from pub.dev, you can inject that using `.addDependencies()`.
+* If you need to import a file into the top of the dart file for the class this egg is going to be in, you can add the import string by using `.addImport()`
 
 After this, you can run Parabeac Core and watch your egg do its magic!
